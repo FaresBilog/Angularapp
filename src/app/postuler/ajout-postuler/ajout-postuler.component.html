@@ -1,0 +1,46 @@
+
+
+   
+    
+  
+    <br/>
+    <div>
+    <div mat-dialog-content>
+    <form [formGroup]="medForm">
+        
+        <div class="row">
+            
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Commentaire</mat-label>
+                    <input matInput [(ngModel)]="Commentaire" name="Commentaire" formControlName="Commentaire">
+                    <mat-error *ngIf="medForm.controls['Commentaire'].errors?.required && (medForm.controls['Commentaire'].dirty || medForm.controls['Commentaire'].touched)">veuillez saisir un nom correct</mat-error>
+
+                </mat-form-field>
+            </div>
+
+
+
+           
+
+           
+            
+
+            
+           
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions style="float: right;">
+
+
+
+
+
+    <div class="col-12">
+        <button class="float-right" mat-raised-button color="primary" (click)="Insert1()">Confirmer</button>
+            <button mat-stroked-button color="primary" (click)="annulee()">Annuler</button>
+    </div>
+
+</div>
+</div>

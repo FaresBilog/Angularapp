@@ -1,0 +1,51 @@
+
+
+
+    <mat-toolbar color="primary"><span class="span">Gestion des Recrutement
+      <p style="text-align: center">LOGIN</p>
+    </span>
+    </mat-toolbar>
+    
+    <div class="card-container">
+      <mat-card class="card-content" fxLayout="row" fxLayoutAlign="center stretch">
+        <div>
+          <div mat-dialog-content>
+        <form [formGroup]="loginForm">
+        
+          <mat-form-field class="form-row"> 
+            <span matTooltip="nom">
+                <input matInput  type="email" class="form-control" placeholder="Nom d'uilisateur" [(ngModel)]="nom" formControlName="cnom">
+            </span>
+            <span matPrefix>
+              <mat-icon style="color: black;"></mat-icon>
+            </span>
+         </mat-form-field> 
+          <br /><br />
+          <mat-form-field class="form-row"> 
+            <span matTooltip="Password">
+                <input matInput type="password" class="form-control" placeholder="mot de passe" [(ngModel)]="password" formControlName="cpassword">
+            </span>
+            <span matPrefix>
+              <mat-icon style="color: black;"></mat-icon>
+            </span>
+          </mat-form-field>
+          <br />
+          <br />
+      
+          <br />
+          <br />
+        
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat" mat-button color="primary" (click)="login()" >Se connecter</button>
+          </div>
+          <br>
+          <a href="javascript:void(0)"(click)="register()">Inscrire un nouveau compte</a><br>
+          
+        </form>
+       
+</div>
+
+
+</div>
+      </mat-card>
+    </div>

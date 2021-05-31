@@ -1,0 +1,31 @@
+table {
+    table-layout: auto;
+  width: 100%;  
+  }
+  tr.mat-footer-row {
+    font-weight: bold;
+  }
+  .mat-form-field {
+    font-size: 20px;
+    margin-left: 60px;
+   /* margin-top: 10px; */
+    width: 90%;
+  }
+ 
+  .ui-helper-center {
+    text-align: center;
+}
+/* Style buttons */
+/* .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Darker background on mouse-over */
+  /* .btn:hover {
+    background-color: RoyalBlue;
+  } */ 

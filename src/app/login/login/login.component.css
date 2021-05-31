@@ -1,0 +1,56 @@
+.mat-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height:90px
+  }
+  .span {
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .card-container {
+    background-color: white;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-content {
+    background-color: white;
+    display: flex;
+    min-width: 50vh;
+    align-content: stretch;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    height: 70%;
+  }
+  .form-elements {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    line-height: normal;
+    align-items: center;
+    justify-content: center;
+  }
+  .mat-icon {
+    transform: scale(4);
+  }
+  .form-row {
+    align-content: stretch;
+  }
+  .checkbox {
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  ::ng-deep .blue-snackbar  {
+    color: red;
+    background-color:whitesmoke;
+  }

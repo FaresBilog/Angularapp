@@ -1,0 +1,71 @@
+
+    <div class="row">
+        <div class="col-12">
+
+            <div >
+               
+                <table mat-table [dataSource]="dataSource" class="table-hover">
+
+                    <ng-container matColumnDef="Nom_Entertien">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Noms </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.nom_Entertien}} </td>
+                         
+                    </ng-container>
+
+                    <ng-container matColumnDef="Date_Entertien">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Date </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.date_Entertien|date:mediumDate}} </td>
+                    </ng-container>
+
+                 
+
+                    <ng-container matColumnDef="Descision_Entretien">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Descision </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.descision_Entretien}} </td>
+                    </ng-container> 
+
+                    <ng-container matColumnDef="Nom_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef>Condidats</th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.nom_Utilisateur}} </td>
+                    </ng-container> 
+                    <ng-container matColumnDef="Titre_Offre">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Offres </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.titre_Offre}} </td>
+                    </ng-container> 
+
+                    <ng-container matColumnDef="Action" >
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef > Action </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element">
+
+                            <button class="btn btn-outline-danger btn-sm" matTooltip="Supprimer"  mat-button color="warn" *ngIf="IsInRole('Entreprise')" (click)="supprimer(element)">
+                                <span class="material-icons">
+                                    delete_forever
+                                </span></button>&nbsp;
+
+                            <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Entreprise')" mat-button color="accent" (click)="openDialog(element)" matTooltip="Modifier">
+                                <span class="material-icons">
+                                    create
+                                </span>
+                            </button>&nbsp;
+                       
+                        </td>
+                    </ng-container> 
+                    
+                    
+                    <tr mat-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+                 </div>
+        </div>
+        <br/>
+        <div  class="col-12">
+            <button type="button" class="btn btn-outline-success btn-block" style="width: fit-content; float: right; margin-right: 9%; margin-top: 1%;" *ngIf="IsInRole('Entreprise')" mat-button color="primary" (click)="openDialog(null)">Ajouter un entertien </button>
+        </div >
+     
+       
+
+        <mat-paginator  [pageSize]="10" showFirstLastButtons ></mat-paginator>
+    </div>
+    
+       

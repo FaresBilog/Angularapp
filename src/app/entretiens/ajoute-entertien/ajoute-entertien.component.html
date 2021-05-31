@@ -1,0 +1,58 @@
+
+<h1 mat-dialog-title>{{titre}} </h1>
+<button style="float: right;" mat-raised-button color="warn" (click)="annuler()">X</button>
+    
+    <br/>
+    <div>
+    <div mat-dialog-content >
+    <form [formGroup]="medForm">
+        
+        <div class="row">
+            
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Nom</mat-label>
+                    <input matInput [(ngModel)]="Nom_Entertien" name="Nom_Entertien" formControlName="Nom_Entertien">
+                    <mat-error *ngIf="medForm.controls['Nom_Entertien'].errors?.required && (medForm.controls['Nom_Entertien'].dirty || medForm.controls['Nom_Entertien'].touched)">veuillez saisir un nom correct</mat-error>
+
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Date</mat-label>
+                    <input type="date"   matInput  [(ngModel)]="Date_Entertien" name="Date_Entertien" formControlName="Date_Entertien">
+                    <mat-error *ngIf="medForm.controls['Date_Entertien'].errors?.required && (medForm.controls['Date_Entertien'].dirty || medForm.controls['Date_Entertien'].touched)">veuillez saisir un prénom correct</mat-error>
+
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Descision</mat-label>
+                    <input matInput  required  [(ngModel)]="Descision_Entretien" name="Descision_Entretien" formControlName="Descision_Entretien"> 
+                    <mat-error *ngIf="medForm.controls['Descision_Entretien'].errors?.required && (medForm.controls['Descision_Entretien'].dirty || medForm.controls['Descision_Entretien'].touched)">veuillez saisir une adresse mail correct</mat-error>
+    
+                  </mat-form-field>
+                </div>
+
+
+
+
+          
+        </div>
+    </form>
+
+<div mat-dialog-actions style="float: right;">
+
+
+
+
+
+    <div class="col-12">
+        <button class="float-right" mat-raised-button color="primary"  (click)="Insert()">Confirmer</button>
+            <button mat-stroked-button color="primary" (click)="annulee()">Annuler</button>
+    </div>
+
+</div>
+</div>

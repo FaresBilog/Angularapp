@@ -1,0 +1,135 @@
+
+
+<h1 mat-dialog-title>{{titre}} </h1>
+    <button style="float: right;" mat-raised-button color="warn" (click)="annuler()">X</button>
+       
+   
+    <br/>
+   
+   
+    <form [formGroup]="medForm" >
+        
+        <div class="row">
+            
+            <div class="col-4" style="display: inline-block;">
+                <mat-form-field  >
+                    <mat-label>Nom</mat-label>
+                    <input matInput [(ngModel)]="Nom" name="Nom" formControlName="Nom">
+                 
+                </mat-form-field>
+            </div>&nbsp;&nbsp;
+                <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Prenom</mat-label>
+                    <input matInput  [(ngModel)]="Prenom" name="Prenom" formControlName="Prenom">
+                   
+                </mat-form-field>
+            </div>
+
+
+
+
+
+
+<div>
+            
+            <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Sexe</mat-label>
+                   
+                      
+                        <mat-label>Sexe</mat-label>
+                   
+                        <mat-select [(ngModel)]="sexe" name="value" formControlName="sexe">
+                          <mat-option *ngFor="let sexe of sexee" [value]="sexe.value">
+                            {{sexe.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                </div>&nbsp;&nbsp;
+    
+
+           
+
+            
+                <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Poste</mat-label>
+                    <input matInput [(ngModel)]="Poste" name="Poste" formControlName="Poste">
+                 
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Role</mat-label>
+                    
+                   
+                    <mat-select [(ngModel)]="Id_Role" name="Id_Role" formControlName="Id_Role">
+                      <mat-option *ngFor="let r of Roles" [value]="r.id_Role">
+                        {{r.libille_Role}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            &nbsp;&nbsp;
+                <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Portable</mat-label>
+                    <input matInput [(ngModel)]="Portable" name="Portable" formControlName="Portable">
+              
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Date</mat-label>
+                    <input type="date" matInput [(ngModel)]="Date" name="Date" formControlName="Date">
+                   
+                    
+                </mat-form-field>
+            </div>
+          
+            &nbsp;&nbsp;
+            <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>Nom Enterprise</mat-label>
+                    <input matInput [(ngModel)]="Nom_Enterprise" name="Nom_Enterprise" formControlName="Nom_Enterprise">
+
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+        <div class="col-4" style="display: inline-block;">
+                <mat-form-field >
+                    <mat-label>E-mail</mat-label>
+                    <input type="email" matInput [(ngModel)]="Email" name="Email" formControlName="Email">
+
+                </mat-form-field>
+            </div>
+
+            <div class="col-4" style="display: inline-block;">
+                <input type="file"  #file placeholder="Choose file" (change)="uploadFile($event.target.files)" style="display:none;">
+            
+                <button type="button" mat-stroked-button class="btn btn-outline-success btn-block" (click)="file.click()">CV</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+
+
+
+
+    <div mat-dialog-actions style="float: right;">
+
+
+
+    <div class="col-12">
+        <button class="float-right" mat-raised-button color="primary"  (click)="Insert()">Confirmer</button>
+            <button mat-stroked-button color="primary" (click)="annulee()">Annuler</button>
+    </div>
+
+</div>

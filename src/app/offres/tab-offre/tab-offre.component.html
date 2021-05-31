@@ -1,0 +1,82 @@
+  <div class="row">
+        <div class="col-12">
+            <div >
+  
+                <table mat-table [dataSource]="dataSource" class="table-hover">
+                    
+                    <ng-container matColumnDef="Titre_Offre">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Titre </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.titre_Offre}} </td>
+                         
+                    </ng-container>
+
+                    <ng-container matColumnDef="Pays_Offre">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Pays </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.pays_Offre}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Description_Offre">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Description </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.description_Offre}} </td>
+                        
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="Statut_Offre">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Statut </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.statut_Offre}} </td>
+                    </ng-container> 
+                    <ng-container matColumnDef="Date_Expiration">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Date Expiration </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.date_Expiration|date:mediumDate}} </td>
+                    </ng-container> 
+                    
+                    <ng-container matColumnDef="Action">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Action </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element">
+                            
+                            <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Entreprise')"  mat-button color="primary"  (click)="details1(element)" matTooltip="liste candidat">
+                                <span class="material-icons">
+                                    list
+                                    </span>
+                            </button>&nbsp;
+                            <button class="btn btn-outline-danger btn-sm"  mat-button color="warn" matTooltip="Supprimer" *ngIf="IsInRole('Entreprise')"  (click)="supprimer(element)">
+                                <span class="material-icons">
+                                    delete_forever
+                                </span></button>&nbsp;
+
+                            <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Entreprise')" mat-button color="accent" (click)="openDialog(element)" matTooltip="Modifier">
+                                <span class="material-icons">
+                                    create
+                                </span>
+                            </button>
+                            &nbsp;
+                            
+                            <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Condidat')" mat-button color="primary"  (click)="Acheter(element)" matTooltip="Acheter" >
+                                <span class="material-icons">
+                                    shopping_cart
+                                    </span>
+                            </button>&nbsp;
+                            <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Condidat')"  (click)="Postuler(element)" mat-button color="primary"  matTooltip="Postuler">
+                                <span class="material-icons">
+                                    note_add
+                                    </span>
+                            </button>
+                        </td>
+                    </ng-container> 
+                    
+                    
+                    <tr mat-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+                
+            </div>
+        </div><br/>
+        <div  class="col-12">
+            <button type="button" class="btn btn-outline-success btn-block" style="width: fit-content; float: right; margin-right: 9%; margin-top: 1%;" *ngIf="IsInRole('Entreprise')" mat-button color="primary" (click)="openDialog(null)">Ajouter un offre </button>
+        </div >
+        <mat-paginator [pageSize]="10" showFirstLastButtons="true"></mat-paginator>
+      
+    </div>
+    
+       

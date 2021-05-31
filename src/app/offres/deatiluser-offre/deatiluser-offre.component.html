@@ -1,0 +1,78 @@
+
+<h1 mat-dialog-title> Liste des condidats par offre</h1>
+<button style="float: right;" mat-raised-button color="warn" (click)="annuler()">X</button>
+        <div class="row">
+            <div class="col-12">
+                <div >         
+                    <table mat-table [dataSource]="dataSource" class="table-hover">                
+                        <ng-container matColumnDef="Nom_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Nom </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.nom_Utilisateur}} </td>                        
+                        </ng-container>                                      
+                        <ng-container matColumnDef="Prenom_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Prenom </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.prenom_Utilisateur}} </td>
+                        </ng-container>                
+                        <ng-container matColumnDef="Sexe_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Sexe </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.sexe_Utilisateur}} </td>                      
+                        </ng-container>
+                        <ng-container matColumnDef="Poste_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Poste </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.poste_Utilisateur}} </td>
+                        </ng-container> 
+                        <ng-container matColumnDef="Libille_Role">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Role </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.libille_Role}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Portable_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Portable </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.portable_Utilisateur}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Date_naiss">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Date </th>
+                            <td class="ui-helper-center" mat-cell  *matCellDef="let element"> {{element.date_naiss|date:mediumDate}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Cv_Utilisateur">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> cv </th>                     
+                            <td class="ui-helper-center" mat-cell  *matCellDef="let element">                          
+                                <button value="{{element.cv_Utilisateur}}" mat-button  (click)="download(element.cv_Utilisateur)"><span class="material-icons">
+                                    article
+                                    </span></button> 
+                                
+                        </ng-container>
+                        <ng-container matColumnDef="Commentaire">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Commentaire </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.commentaire}} </td>    
+                        </ng-container>
+                        <ng-container matColumnDef="Action">
+                            <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Action </th>
+                            <td class="ui-helper-center" mat-cell *matCellDef="let element">
+                               
+                                <button class="btn btn-outline-primary btn-sm" (click)="details(element)" mat-button color="primary"  matTooltip="compétance">
+                                    <span class="material-icons">
+                                        fitness_center
+                                        </span>
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" (click)="ajouter(element)" mat-button color="accent"  matTooltip="ajouter entretien">
+                                    <span class="material-icons"> add_circle_outline </span>
+                                </button>
+                            </td>
+                        </ng-container> 
+    
+                        
+                        <tr mat-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  
+    
+                
+                </div>
+            </div>
+            <br/>
+           
+            <mat-paginator  [pageSize]="10" showFirstLastButtons ></mat-paginator>
+          
+        </div>
+        
+           

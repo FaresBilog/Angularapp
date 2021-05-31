@@ -1,0 +1,57 @@
+
+<h1 mat-dialog-title>{{titre}} </h1>
+   
+   
+    <div class="col">
+        <button  style="float: right; width: 20px; height: 30px;" mat-raised-button color="warn" size="4" (click)="annuler()">X</button>
+       
+
+    </div>
+    <br/>
+    <div>
+    <div mat-dialog-content>
+    <form [formGroup]="medForm">
+        
+        <div class="row">
+            
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Libelle</mat-label>
+                    <input matInput [(ngModel)]="Libelle_Competance" name="Libelle_Competance" formControlName="Libelle_Competance">
+                     <mat-error *ngIf="medForm.controls['Libelle_Competance'].errors?.required && (medForm.controls['Libelle_Competance'].dirty || medForm.controls['Libelle_Competance'].touched)">veuillez saisir un nom correct</mat-error> 
+
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field >
+                    <mat-label>Description</mat-label>
+                    <input matInput  [(ngModel)]="Description_Competance" name="Description_Competance" formControlName="Description_Competance">
+                     <mat-error *ngIf="medForm.controls['Description_Competance'].errors?.required && (medForm.controls['Description_Competance'].dirty || medForm.controls['Description_Competance'].touched)">veuillez saisir un prénom correct</mat-error> 
+
+                </mat-form-field>
+            </div>
+
+
+        
+           
+
+
+            
+           
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions style="float: right;">
+
+
+
+
+
+    <div class="col-12">
+        <button  mat-raised-button color="primary" (click)="Insert()">Confirmer</button>
+            <button mat-stroked-button color="primary" (click)="annulee()">Annuler</button>
+    </div>
+
+</div>
+</div>

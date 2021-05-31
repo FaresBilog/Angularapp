@@ -1,0 +1,78 @@
+   <div class="row">
+        <div class="col-12">
+            <div >         
+                <table mat-table [dataSource]="dataSource" class="table-hover">                
+                    <ng-container matColumnDef="Nom_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Nom </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.nom_Utilisateur}} </td>                        
+                    </ng-container>                                      
+                    <ng-container matColumnDef="Prenom_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Prenom </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.prenom_Utilisateur}} </td>
+                    </ng-container>                
+                    <ng-container matColumnDef="Sexe_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Sexe </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.sexe_Utilisateur}} </td>                      
+                    </ng-container>
+                    <ng-container matColumnDef="Poste_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Poste </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.poste_Utilisateur}} </td>
+                    </ng-container> 
+                    <ng-container matColumnDef="Libille_Role">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Role </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.libille_Role}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Portable_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Portable </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.portable_Utilisateur}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Date_naiss">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Date </th>
+                        <td class="ui-helper-center" mat-cell  *matCellDef="let element"> {{element.date_naiss|date:mediumDate}} </td>
+                    </ng-container>
+                   
+
+                    <ng-container matColumnDef="Cv_Utilisateur">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> cv </th>                     
+                        <td class="ui-helper-center" mat-cell  *matCellDef="let element">                          
+                            <button value="{{element.cv_Utilisateur}}" mat-button  (click)="download(element.cv_Utilisateur)"><span class="material-icons">
+                                article
+                                </span></button> 
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="Action">
+                        <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Action </th>
+                        <td class="ui-helper-center" mat-cell *matCellDef="let element">
+                            <button class="btn btn-outline-danger btn-sm"  *ngIf="IsInRole('Entreprise')" mat-button color="warn" matTooltip="Supprimer" (click)="supprimer(element)">
+                                <span class="material-icons" color="primary">
+                                    delete_forever
+                                </span></button>&nbsp;
+                          <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Condidat')" (click)="openDialog(element)" mat-button color="accent" matTooltip="Modifier">
+                                <span class="material-icons">
+                                    create
+                                </span>
+                            </button>&nbsp;
+                            <button class="btn btn-outline-primary btn-sm" (click)="details(element)" mat-button color="primary"  matTooltip="details">
+                                <span class="material-icons">
+                                  info
+                                  </span>
+                            </button>
+                        </td>
+                    </ng-container> 
+
+                    
+                    <tr mat-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+
+            
+            </div>
+        </div>
+        <br/>
+        
+        <mat-paginator  [pageSize]="10" showFirstLastButtons ></mat-paginator>
+      
+    </div>
+    
+       

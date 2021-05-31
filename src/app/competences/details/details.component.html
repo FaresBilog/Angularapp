@@ -1,0 +1,73 @@
+
+<h1 mat-dialog-title> Liste des compétences</h1>
+    <mat-card-content>
+   
+
+      
+        <button style="float: right;" mat-raised-button color="warn" (click)="annuler()">X</button>
+      
+  
+  <div class="row">
+    <div class="col-6">
+
+        <div >
+          
+  
+            <table mat-table [dataSource]="dataSource" class="table-hover">
+
+                <ng-container matColumnDef="libelle_Competance">
+                    <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Libelle </th>
+                    <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.libelle_Competance}} </td>    
+                </ng-container>
+                <ng-container matColumnDef="description_Competance">
+                    <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Description </th>
+                    <td class="ui-helper-center" mat-cell *matCellDef="let element"> {{element.description_Competance}} </td>
+                </ng-container> 
+                <ng-container matColumnDef="Action">
+                  <th class="ui-helper-center" mat-header-cell *matHeaderCellDef> Action </th>
+                  <td class="ui-helper-center" mat-cell *matCellDef="let element">
+
+                      <button class="btn btn-outline-danger btn-sm" matTooltip="Supprimer" *ngIf="IsInRole('Condidat')" mat-button color="warn" (click)="supprimer(element)">
+                          <span class="material-icons">
+                              delete_forever
+                          </span></button>&nbsp;
+
+                      <button class="btn btn-outline-primary btn-sm" *ngIf="IsInRole('Condidat')" mat-button color="accent" (click)="openDialog(element)" matTooltip="Modifier">
+                          <span class="material-icons">
+                              create
+                          </span>
+                      </button>&nbsp;
+                      
+                  </td>
+              </ng-container> 
+                <tr mat-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+            </table>
+            <mat-paginator  [pageSize]="10"  ></mat-paginator>
+     
+             </div>
+    </div>
+    <br/>
+    <div  class="col-12">
+      <button type="button" class="btn btn-outline-success btn-block" style="width: fit-content; float: right; margin-right: 9%; margin-top: 1%;" *ngIf="IsInRole('Condidat')"  mat-button color="primary" (click)="openDialog(null)">Ajouter une compétence </button>
+    
+    </div >
+ 
+ 
+
+  
+ 
+  
+  
+</div>
+   
+   
+
+    
+    
+
+   
+    </mat-card-content>
+   
+  <!-- </mat-card> -->

@@ -1,0 +1,22 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+ 
+  table {
+    table-layout: auto;
+  width: 100%;  
+  }
+  tr.mat-footer-row {
+    font-weight: bold;
+  }
+  .mat-form-field {
+    font-size: 20px;
+    margin-left: 60px;
+  
+    width: 90%;
+  }
+ 
+  .ui-helper-center {
+    text-align: center;
+}

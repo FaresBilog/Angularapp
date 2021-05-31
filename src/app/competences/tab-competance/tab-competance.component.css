@@ -1,0 +1,25 @@
+table {
+    table-layout: auto;
+  width: 100%;  
+  }
+  tr.mat-footer-row {
+    font-weight: bold;
+  }
+  .mat-form-field {
+    font-size: 20px;
+    margin-left: 60px;
+   /* margin-top: 10px; */
+    width: 90%;
+  }
+ 
+  .ui-helper-center {
+    text-align: center;
+}
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
