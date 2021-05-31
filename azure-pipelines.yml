@@ -1,4 +1,5 @@
 # Node.js with Angular
+
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -31,3 +32,10 @@ steps:
   displayName: 'Download Pipeline Artifact'  
   inputs:  
     targetPath: ' $(Build.ArtifactStagingDirectory)/dist/AngularTest'   
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Microsoft Partner Network (73c77c7c-c393-4496-8d9d-56ce5c5da9c4)'
+    appType: 'webAppLinux'
+    appName: 'Angularpipline'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'NODE|12-lts'
