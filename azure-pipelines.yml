@@ -40,7 +40,7 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Microsoft Partner Network (73c77c7c-c393-4496-8d9d-56ce5c5da9c4)'
-    appType: 'webAppLinux'
-    appName: 'Angularpipline'
-    package: '$(Build.ArtifactStagingDirectory)/dist/AngularTest'
-    runtimeStack: 'NODE|12-lts'
+    appType: 'webApp'
+    appName: 'bilog'
+    package: '$(System.DefaultWorkingDirectory)/_FaresBilog.Angularapp/test'
+    deploymentMethod: 'auto'
