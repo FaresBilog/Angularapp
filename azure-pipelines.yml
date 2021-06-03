@@ -37,10 +37,11 @@ steps:
 #   displayName: 'Download Pipeline Artifact'  
 #   inputs:  
 #     targetPath: '$(Build.ArtifactStagingDirectory)/dist/AngularTest'   
-- task: AzureWebApp@1
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy Azure App Service'
   inputs:
-    azureSubscription: 'Microsoft Partner Network (73c77c7c-c393-4496-8d9d-56ce5c5da9c4)'
+    azureSubscription: '$(Parameters.ConnectedServiceName)'
     appType: 'webApp'
-    appName: 'bilog'
-    package: '$(System.DefaultWorkingDirectory)/_FaresBilog.Angularapp/test'
-    deploymentMethod: 'auto'
+    WebAppName: '$(Parameters.WebAppName)'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/_FaresBilog.Angularapp/test'    
